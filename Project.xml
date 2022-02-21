@@ -55,6 +55,7 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="AndroidTools" if="android"/>
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
+        <architecture name="armv7" exclude="arm64" if="android" /> <!-- only for testing -->
 
 	<!-- <haxelib name="markdown" /> -->
 	<!-- <haxelib name="HtmlParser" /> -->
