@@ -13,6 +13,7 @@ import android.AndroidTools;
 
 class Main extends Sprite
 {
+	static public var debugMode = false;
 	var initialState:Class<FlxState> = DeeerState; // The FlxState the game starts with.
 	var zoom:Float = 1;
 	var framerate:Int = 60; // How many frames per second the game should run at.
@@ -29,9 +30,15 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
+		#if debug
+		debugMode = true;
+		#end
 		FlxG.save.bind('deeer', 'susrox');
 		if (FlxG.save.data.firstStart == null) {
 			FlxG.save.data.firstStart = true;
+		}
+		if (FlxG.save.data.encodeMode == null) {
+			FlxG.save.data.encodeMode = true;
 		}
 		if (FlxG.save.data.firstStart) {
 			initialState = FirstStartState;

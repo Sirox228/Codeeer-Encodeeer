@@ -12,6 +12,8 @@ class FirstStartState extends FlxState {
 		if (AndroidTools.getSDKversion() > 23 || AndroidTools.getSDKversion() == 23) {
 		    AndroidTools.requestPermissions([Permissions.READ_EXTERNAL_STORAGE, Permissions.WRITE_EXTERNAL_STORAGE]);
 		}
+		FlxG.save.data.firstStart = false;
+		FlxG.save.flush();
 		super.create();
 	}
 	

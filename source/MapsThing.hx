@@ -24,13 +24,19 @@ class MapsThing {
 		    }
 		    g = 0;
 		}
-		trace("DEEERCODERLOG: parsed array = " + parsedArray);
-		for (i in 0...parsedArray.length) {
-			encodeMap.set(parsedArray[i][0], parsedArray[i][1]);
-			decodeMap.set(parsedArray[i][1], parsedArray[i][0]);
+		if (Main.debugMode) {
+		    Application.current.window.alert("parsed array = " + parsedArray, "debug");
 		}
-		trace("DEEERCODERLOG: encode map = " + encodeMap);
-		trace("DEEERCODERLOG: decode map = " + decodeMap);
+		for (i in 0...parsedArray.length) {
+			encodeMap.set(parsedArray[i][1], parsedArray[i][0]);
+			decodeMap.set(parsedArray[i][0], parsedArray[i][1]);
+		}
+		if (Main.debugMode) {
+		    Application.current.window.alert("encode map = " + encodeMap, "debug");
+		}
+		if (Main.debugMode) {
+		    Application.current.window.alert("decode map = " + decodeMap, "debug");
+		}
 		inited = true;
 	}
 }
