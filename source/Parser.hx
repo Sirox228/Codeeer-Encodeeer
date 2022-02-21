@@ -10,18 +10,10 @@ class Parser {
 		    temp = text.substr(i, i);
 		    trace("DEEERCODERLOG: temp = " + temp);
 		    if (FlxG.save.data.encodeMode) {
-			    if (MapsThing.encodeMap.exists(temp)) {
-		            temp = MapsThing.encodeMap.get(temp);
-		        } else {
-			        temp = "unknown value";
-			    }
+		        temp = MapsThing.encodeMap.get(temp);
 		    } else {
-			    if (MapsThing.decodeMap.exists(temp)) {
-			        temp = MapsThing.decodeMap.get(temp);
-			    } else {
-				    temp = "unknown value";
-				}
-			}
+			temp = MapsThing.decodeMap.get(temp);
+		    }
 			trace("DEEERCODERLOG: parsed temp = " + temp);
 		    result += temp;
 	    }
