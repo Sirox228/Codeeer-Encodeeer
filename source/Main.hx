@@ -29,12 +29,13 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-		/*if (FlxG.save.data.firstStart == null) {
+		FlxG.save.bind('deeer', 'susrox');
+		if (FlxG.save.data.firstStart == null) {
 			FlxG.save.data.firstStart = true;
 		}
 		if (FlxG.save.data.firstStart) {
 			initialState = FirstStartState;
-		}*/
+		}
 		addChild(new FlxGame(0, 0, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 	}
 	static public function getDataPath():String {
@@ -44,20 +45,19 @@ class Main extends Sprite
 			if (AndroidTools.getSDKversion() > 23 || AndroidTools.getSDKversion() == 23) {
 			    var grantedPermsList:Array<Permissions> = AndroidTools.getGrantedPermissions();
 			    if (!grantedPermsList.contains(Permissions.READ_EXTERNAL_STORAGE) || !grantedPermsList.contains(Permissions.WRITE_EXTERNAL_STORAGE)) {
-				    Application.current.window.alert("game can't run without storage permissions, please grant them in settings","Permissions");
+				    Application.current.window.alert("program can't run without storage permissions, please grant them in settings","Permissions");
 				    flash.system.System.exit(0);
 			    }
 			}
 			var strangePath:String = AndroidTools.getExternalStorageDirectory();
-			if (!FileSystem.exists(strangePath + "/.PsychEngine") || !FileSystem.exists(strangePath + "/.PsychEngine/assets") || !FileSystem.exists(strangePath + "/.PsychEngine/mods")) {
-				if (!FileSystem.exists(strangePath + "/.PsychEngine")) {
-				    FileSystem.createDirectory(strangePath + "/.PsychEngine");
-				}
-				Application.current.window.alert("please copy assets/assets and assets/mods folders from apk to *.PsychEngine* folder inside your internal storage, if you won't do like instructions say, game will crash","instructions");
-				flash.system.System.exit(0);
-			} else {
-				dataPath = strangePath + "/.PsychEngine/";
+			if (!FileSystem.exists(strangePath + "/Codeeer")) {
+				FileSystem.createDirectory(strangePath + "/Codeeer");
 			}
+			if (!FileSystem.exists(strangePath + "/Codeeer/codec.txt")) {
+				Application.current.window.alert("please create codec.txt with  *Codeeer* folder inside your internal storage","setup");
+				flash.system.System.exit(0);
+			}
+			dataPath = strangePath + "/Codeeer/";
 		}
 		return dataPath;
 	}
