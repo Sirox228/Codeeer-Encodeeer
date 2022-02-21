@@ -33,6 +33,7 @@ class DeeerState extends FlxState {
 		savebutton.setLabelFormat("VCR OSD Mono",24,FlxColor.BLACK,"center");
 		add(savebutton);
 		//MapsThing.initMaps();
+                super.create();
 	}
 	
 	override public function update(elapsed:Float)
@@ -43,5 +44,7 @@ class DeeerState extends FlxState {
 			}
 		}
 		resText.text = inputText.text;
+
+                super.update(elapsed);
 	}
 }
