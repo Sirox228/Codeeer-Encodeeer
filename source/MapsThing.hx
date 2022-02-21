@@ -1,6 +1,7 @@
 package;
 
 import sys.io.File;
+import lime.app.Application;
 
 class MapsThing {
 	
