@@ -70,9 +70,9 @@ jobs:
       - name: Build Log
         run: |
           haxelib run lime setup android
-          haxelib run lime build android -release
+          haxelib run lime build android -debug
           
       - uses: actions/upload-artifact@v2
         with:
           name: Android Build
-          path: export/release/android/bin/app/build/outputs/apk/debug/
+          path: export/debug/android/bin/app/build/outputs/apk/debug/
