@@ -48,7 +48,7 @@ class DeeerState extends FlxState {
 			hiddenText += resText.text;
 		    resText.text = '';
 		}
-		if (g = 0 && resText.text = '' && hiddenText != '') {
+		if (g == 0 && resText.text == '' && hiddenText != '') {
 			var thing = hiddenText.substr(hiddenText.length - 10, hiddenText.length);
 			hiddenText = hiddenText.replace(thing, "");
 			resText.text += thing;

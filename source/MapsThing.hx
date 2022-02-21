@@ -4,17 +4,14 @@ import sys.io.File;
 
 class MapsThing {
 	
-	public var encodeMap:Map<String, String>;
-	public var decodeMap:Map<String, String>;
-	public var inited:Bool = false;
+	public static var encodeMap:Map<String, String>;
+	public static var decodeMap:Map<String, String>;
+	public static var inited:Bool = false;
 	
-	public function initMaps() {
+	public static function initMaps() {
 		encodeMap = new Map<String, String>();
 		decodeMap = new Map<String, String>();
-		var codecText = File.getContent(Main.getDataPath() + "codec.txt").trim();
-		for (i in 0...codecText.length) {
-			codecText[i] = codecText[i].trim();
-		}
+		var codecText = File.getContent(Main.getDataPath() + "codec.txt");
 		var parsedArray:Array<Array<String>> = new Array<Array<String>>();
 		var omg = codecText.split('\n');
 		var g:Int = 0;
