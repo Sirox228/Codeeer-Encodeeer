@@ -22,7 +22,6 @@ class DeeerState extends FlxState {
 		inputText = new FlxUIInputText(50, 200, FlxG.width, '', 24, FlxColor.BLACK);
 		inputText.setFormat("font/font.ttf", 24, FlxColor.BLACK, LEFT);
 		inputText.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
-		inputText.resize(inputText.width, 300);
 		add(inputText);
 		resText = new FlxText(inputText.x, inputText.y + 400, FlxG.width - 50, "", 24);
 		resText.setFormat("font/font.ttf", 24, FlxColor.WHITE, LEFT);
